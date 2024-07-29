@@ -4,8 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Weather Project by JavaScript </title>
+    <!-- linking output css of tailwind  -->
+    <link rel="stylesheet" href="./output.css" />
+    <!-- linking custom css  -->
+    <link rel="stylesheet" href="./custom.css" />
 </head>
-<body>
+<body class="relative">
+    <!-- loader for loading  -->
+    <div
+      class="loader absolute top-0 left-0 h-[110vh] z-10  text-xl hidden items-center justify-center w-full bg-[#222256]"
+    >
+      <div class="loader-content flex justify-center items-center flex-col">
+        <img src="./img/animation.gif" alt="" />
+        <p>Loading ...</p>
+      </div>
+    </div>
+    <!-- web application interface  -->
+    <h2 class="text-center text-3xl font-bold py-4 text-[#222256] bg-[#fcc94a]">
+      Weather Dashboard
+    </h2>
+
+    <main
+      class="maincontainer py-8 flex flex-col lg:flex-row gap-8 px-8 text-white"
+    >
+      <!-- search section  -->
+      <section class="inputCity lg:w-[30%] xl-w-[30%]">
+        <h3 class="font-bold text-xl text-black">Enter a City Name</h3>
+        <input
+          type="text"
+          value="london"
+          required
+          placeholder="E.g. New York, London, Tokyo"
+          class="px-4 py-2 my-2 block w-full text-black"
+        />
+        <button
+          id="search"
+          class="btn w-full mt-2 bg-[#fcc94a] text-[#222256] font-bold px-4 py-2"
+        >
+          Search
+        </button>
+        <h4 class="my-2 text-center text-xl">or</h4>
+        <button id="currentLocationBtn" class="btn w-full bg-red-500 px-4 py-2">
+          Use Current Location
+        </button>
+
+        <div class="prevLocations">
+          <h2 class="my-2">Previous Locations</h2>
+          <select
+            name="locations"
+            id="locations"
+            class="text-black p-2 outline-none"
+          >
+            <option value="-1" selected disabled>Select Location</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- display section of data -->
+      <section class="infoCity lg:w-[60%] xl:w-full">
+        <div
+          class="currentCity backdrop-blur-sm bg-[#ffffff5c] border border-white w-full flex-col-reverse sm:flex-row flex justify-between p-4 my-4"
+        >
+          <div class="data text-xl">
+            <h3 class="text-2xl font-bold">
+              <span id="mainCity">London </span>
+              (<span id="date">2024-04-23</span>)
+            </h3>
+            <p>Temperature: <span id="mainTemp">7.06 °C</span></p>
+            <p>Wind: <span id="mainWind">2.85 M/S</span></p>
+            <p>Humidity: <span id="mainHumidity"> 88</span>%</p>
+          </div>
+          <div class="icon">
+            <img
+              id="mainImg"
+              src="https://cdn-icons-png.flaticon.com/512/252/252035.png"
+              width="100px"
+              alt=""
+            />
+            <p id="mainFeels">Light Rain</p>
+          </div>
+        </div>
+
+        <!-- showing forecast of 5 days -->
+        <div class="futureForecast">
+          <h2 class="text-2xl py-4 text-black font-bold">5-Day Forecast</h2>
+          <div
+            class="cards justify-start xl:justify-between py-6 flex flex-wrap xl:flex-nowrap lg:flex-row gap-4"
+          >
+            <div
+              class="card w-full xs:w-[13rem] p-4 backdrop-blur-sm bg-[#ffffff5c] transition-all hover:bg-[#ff00005c] border border-white"
+            >
+              <h3>2024-04-24</h3>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/252/252035.png"
+                width="100px"
+                alt=""
+              />
+              <p>Temperature: 7.06 °C</p>
+              <p>Wind: 2.85 M/S</p>
+              <p>Humidity: 88%</p>
+            </div>
+
+            <div
+              style="box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)"
+              class="card w-full xs:w-[13rem] p-4 backdrop-blur-sm bg-[#ffffff5c] transition-all hover:bg-[#ff00005c] border border-white"
+            >
+              <h3>2024-04-24</h3>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/252/252035.png"
+                width="100px"
+                alt=""
+              />
+              <p>Temperature: 7.06 °C</p>
+              <p>Wind: 2.85 M/S</p>
+              <p>Humidity: 88%</p>
+            </div>
+
+            <div
+              style="box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)"
+              class="card w-full xs:w-[13rem] p-4 backdrop-blur-sm bg-[#ffffff5c] transition-all hover:bg-[#ff00005c] border border-white"
+            >
+              <h3>2024-04-24</h3>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/252/252035.png"
+                width="100px"
+                alt=""
+              />
+              <p>Temperature: 7.06 °C</p>
+              <p>Wind: 2.85 M/S</p>
+              <p>Humidity: 88%</p>
+            </div>
+
+            <div
+              style="box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)"
+              class="card w-full xs:w-[13rem] p-4 backdrop-blur-sm bg-[#ffffff5c] transition-all hover:bg-[#ff00005c] border border-white"
+            >
+              <h3>2024-04-24</h3>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/252/252035.png"
+                width="100px"
+                alt=""
+              />
+              <p>Temperature: 7.06 °C</p>
+              <p>Wind: 2.85 M/S</p>
+              <p>Humidity: 88%</p>
+            </div>
+
+            <div
+              style="box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)"
+              class="card w-full xs:w-[13rem] p-4 backdrop-blur-sm bg-[#ffffff5c] transition-all hover:bg-[#ff00005c] border border-white"
+            >
+              <h3>2024-04-24</h3>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/252/252035.png"
+                width="100px"
+                alt=""
+              />
+              <p>Temperature: 7.06 °C</p>
+              <p>Wind: 2.85 M/S</p>
+              <p>Humidity: 88%</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- external js file linking -->
+    <script src="./index.js"></script>
       
 </body>
 </html>

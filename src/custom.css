@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+* {
+  font-family: "Josefin Sans", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+}
+.maincontainer {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+   background: linear-gradient(to right, #0062b9, #4c00b0); 
+}
+.card {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+input {
+  outline: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .card {
+    width: -webkit-fill-available;
+  }
+}
